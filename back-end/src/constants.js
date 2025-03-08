@@ -4,5 +4,6 @@ export const cookieOptions = (action)=>{
 
         httpOnly:true,
         secure:true,
+        sameSite: "none",
         ...(action === "login" && { expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 10) })
 }};

@@ -1,9 +1,16 @@
 import { config } from "dotenv";
 const envData = config();
-console.log('server envData :',envData);
 
-import  app  from "./app.js";
-import connectDB from "./db/index.js";
+const mode = process.env.NODE_ENV;
+console.log("Current Mode:", mode);
+
+if (mode === "development") {
+    
+    console.log('server envData :',envData);
+}
+
+import app, { fullURL }  from "./app.js";
+import connectToDB  from "./db/index.js";
 import ApiError from "./utils/ApiError.js";
 
 const port = process.env.PORT || 4000;
@@ -11,11 +18,11 @@ const port = process.env.PORT || 4000;
 const startServer = async () => {
     try {
         if (process.env.NODE_ENV !== "test") {
-            await connectDB();
+            await connectToDB();
         }
 
         app.listen(port, () => {
-            console.log(`✅ Server running on http://localhost:${port}`);
+            console.log(`✅ Server running on ${fullURL + port}`);
         });
     } catch (error) {
         if (error instanceof ApiError) {

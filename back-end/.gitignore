@@ -32,3 +32,5 @@ coverage/
 # Miscellaneous
 *.log
 date.js
+
+database_credentials.txt

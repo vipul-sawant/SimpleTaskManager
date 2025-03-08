@@ -3,7 +3,7 @@ import asyncHandler from "../utils/asyncHandler.js";
 // import mongoose from "mongoose";
 
 import User from "../models/user.model.js";
-import Task from "../models/Task.model.js";
+import Task from "../models/task.model.js";
 
 import ApiError from "../utils/ApiError.js";
 import ApiResponse from "../utils/ApiResponse.js";

@@ -41,7 +41,7 @@ const App = () => {
 				element: <ProtectedRoutes> <NavbarComponent /> <UpdateTask /> </ProtectedRoutes>
 			}
 		]
-	}]);
+	}], { basename: "/SimpleTaskManager" });
 
     
 	useEffect(()=>{

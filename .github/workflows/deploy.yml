@@ -1,0 +1,49 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Runs when you push to the main branch
+
+permissions:
+  contents: write  # Allows pushing to gh-pages branch
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 1  # Ensures all repo files are fetched
+
+      - name: Verify package.json exists
+        run: ls -la front-end  # List files inside front-end to check if package.json exists
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: latest  # Always use the latest Node.js version
+
+      - name: Install dependencies
+        run: |
+          cd front-end
+          npm install  # Or yarn install
+
+      - name: Inject environment variables
+        run: |
+          echo "VITE_BACKEND_URL=${{ secrets.VITE_BACKEND_URL }}" >> front-end/.env
+
+      - name: Build project
+        run: |
+          cd front-end
+          npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages  # Will create gh-pages if missing
+          folder: front-end/dist  # Deploys the build output
+          clean: true  # Ensures a fresh deploy
+          force: true  # Force push in case of conflicts

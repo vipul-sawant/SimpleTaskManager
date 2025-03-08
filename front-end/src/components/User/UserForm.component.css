@@ -1,0 +1,68 @@
+.component-container{
+
+    max-width: 35vw !important;
+    border: none;
+    border-radius: 15px;
+    background: #F5F9FF;
+    color: #1E3A5F !important;
+    margin-top: 15px;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 25px auto 5px;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+}
+
+.component-container > h1 {
+
+    font-weight: 900 !important;
+}
+
+.form-group-wrapper{
+    margin-top: 15px;
+}
+
+.col-wrapper {
+    text-align: left; /* Ensures text aligns left */
+}
+
+.form-label{
+    
+    color: #1E3A5F !important;
+    font-weight: 700 !important;
+    text-align: left !important;
+    /* margin-left: 0px !important; */
+}
+
+.form-container > form{
+
+    text-align: center;
+}
+
+.form-input{
+    border: 1px solid #FCA311 !important;
+    background-color: #1E3A5F !important;
+    color: #FCA311 !important;
+    font-weight: bold;
+    padding: 15px;
+}
+
+.form-input::placeholder{
+
+    color: white !important;
+    font-weight: bolder !important;
+}
+
+.btn{
+    margin: 15px 0px;
+    font-weight: bolder !important;
+    background-color: #14213D !important;
+    color: #FCA311 !important;
+}
+
+.back-btn{
+
+    align-self: flex-start !important;
+}

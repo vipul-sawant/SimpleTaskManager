@@ -38,9 +38,9 @@ app.use(urlencoded(urlEncodedOptions));
 app.use(static_('public'));
 
 app.use(cookieParser());
-
+let fullURL;
 app.use((req, _, next) => {
-    const fullURL = `${req.protocol}://${req.get("host")}${req.originalUrl}`;
+    fullURL = `${req.protocol}://${req.get("host")}${req.originalUrl}`;
     console.log(`🛠 Request received: ${fullURL}`);
     next();
 });
@@ -52,3 +52,5 @@ app.use('/api/v1/auth', AuthRoutes);
 app.use('/api/v1/tasks', TaskRoutes);
 
 export default app;
+
+export { fullURL };

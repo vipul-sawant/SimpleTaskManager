@@ -85,59 +85,67 @@ const Task = ({ task }) => {
   console.log('task :', task);
   const navigate = useNavigate();
   return (
-    <Card className="m-3 shadow-sm p-3">
-            <CardBody>
-                {/* Title, Status, and Due Date */}
-                <Row className="align-items-center">
-                    <Col>
-                        <h4 className="mb-0">{task.title}</h4>
-                    </Col>
-                    <Col className="text-center">
-                        <span className={`badge ${task.status === "Completed" ? "bg-success" : "bg-warning"}`}>
-                            {task.status}
-                        </span>
-                    </Col>
-                    <Col className="text-end">
-                        <h6 className="text-muted">{formattedTime(task.dueDate)}</h6>
-                    </Col>
-                </Row>
+    <Card className="m-3 shadow-sm p-3 rounded-4">
+        <CardBody>
+            {/* Title, Status, and Due Date */}
+            <Row className="align-items-center text-center text-md-start">
+                <Col xs={12} md={6}>
+                    <h5 className="mb-1 fw-bold">{task.title}</h5>
+                </Col>
+                <Col xs={6} md={3}>
+                    <span className={`badge ${task.status === "Completed" ? "bg-success" : "bg-warning"}`}>
+                        {task.status}
+                    </span>
+                </Col>
+                <Col xs={6} md={3} className="text-md-end fw-bold text-dark">
+                    <small>{formattedTime(task.dueDate)}</small>
+                </Col>
+            </Row>
 
-                {/* Description */}
-                <Row className="mt-2">
-                    <Col>
-                        <p className="text-secondary">{task.description}</p>
-                    </Col>
-                </Row>
+            {/* Description */}
+            <Row className="mt-2">
+                <Col>
+                    <p className="text-secondary mb-2">{task.description}</p>
+                </Col>
+            </Row>
 
-                {/* Checkbox: Mark as Complete */}
-                <Row className="mt-3">
-                    <Col>
-                        <Form.Check
-                            type="checkbox"
-                            label="Mark as Completed?"
-                            checked={task.status === "Completed"}
-                            onChange={handleCheckboxChange}
-                        />
-                    </Col>
-                </Row>
+            {/* Dynamic Checkbox */}
+            <Row className="mt-3">
+                <Col>
+                    <Form.Check
+                        type="checkbox"
+                        label={task.status === "Completed" ? "Mark as Pending?" : "Mark as Completed?"}
+                        className="fw-bold"
+                        checked={task.status === "Completed"}
+                        onChange={handleCheckboxChange}
+                    />
+                </Col>
+            </Row>
 
-                {/* Action Buttons */}
-                <Row className="mt-3">
-                    <Col className="d-flex justify-content-start">
-                        <Button
-                            variant="primary"
-                            className="me-2"
-                            onClick={() => navigate(`/tasks/${task._id}/edit`, { state: { task } })}
-                        >
-                            Edit
-                        </Button>
-                        <Button variant="danger" onClick={() => removeTask(task._id)}>
-                            Delete
-                        </Button>
-                    </Col>
-                </Row>
-            </CardBody>
-        </Card>
+            {/* Action Buttons */}
+            <Row className="mt-3">
+                <Col className="d-flex justify-content-center justify-content-md-start gap-2">
+                    <Button 
+                        variant="primary" 
+                        size="sm"
+                        className="px-3 py-1"
+                        onClick={() => navigate(`/tasks/${task._id}/edit`, { state: { task } })}
+                    >
+                        Edit
+                    </Button>
+                    <Button 
+                        variant="danger" 
+                        size="sm" 
+                        className="px-3 py-1"
+                        onClick={() => removeTask(task._id)}
+                    >
+                        Delete
+                    </Button>
+                </Col>
+            </Row>
+        </CardBody>
+    </Card>
+
   );
 };
 

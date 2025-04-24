@@ -2,3 +2,107 @@
 
   padding: 0 !important;
 }
+
+.input-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90%; /* Mobile-first width */
+  max-width: 40vw; /* Prevents it from being too wide on desktops */
+  min-height: 50vh; /* Ensures it's not too short */
+  /* max-height: 80vh; Prevents it from becoming too tall */
+  margin: 10vh auto; /* Centers it with space around */
+  padding: 20px;
+  background: #F5F9FF;
+  /* background-color: #FCA311; */
+  /* background-color: #FFF8DC; */
+  /* background-color: #DCE7F5; */
+  /* background-color: #A7C7E7; */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* overflow-y: auto; Allows scrolling if content overflows */
+}
+.input-form-container > h1{
+
+  color: #1E5F3A  !important;
+
+}
+.my-btn {
+  margin: 15px 0;
+  font-weight: bolder !important;
+  background-color: #1E5F3A  !important;
+  color: #CFF5E7;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none !important;
+  outline: none !important;
+  align-self: center;
+}
+
+.btn-back{
+
+  background-color: #FCA311 !important;
+  color: #1E5F3A  !important;
+  align-self: flex-start !important;
+}
+
+.input-form-container > form {
+  width: 100%; /* Takes full width of parent */
+  max-width: 500px; /* Restricts width on large screens */
+  padding: 20px;
+  /* background: #F5F9FF; Light background for contrast */
+  border-radius: 12px;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  border: none;
+  text-align: center;
+}
+
+/* Form Groups */
+.form-group-wrapper {
+  margin-top: 15px;
+  width: 100%;
+}
+
+/* Label */
+.form-label {
+  color: #1E5F3A !important;
+  font-weight: 700 !important;
+  text-align: left !important;
+  display: block; /* Ensures proper positioning */
+}
+
+/* Input Fields */
+.form-input {
+  width: 100%;
+  border: 1px solid #CFF5E7 !important;
+  background-color: #1E5F3A !important;
+  color: #CFF5E7 !important;
+  font-weight: bold;
+  padding: 12px;
+  border-radius: 6px;
+}
+
+/* Input Placeholder */
+.form-input::placeholder {
+  color: white !important;
+  font-weight: bolder !important;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .form-container > form {
+      max-width: 95%; /* Full width on smaller screens */
+  }
+}
+
+/* Ensure full width and proper height on smaller screens */
+@media (max-width: 768px) {
+  .input-form-container {
+      max-width: 95%; /* Expands width on small screens */
+      min-height: 60vh; /* Adjusts height for better balance */
+      margin: 5vh auto; /* Reduces margin for smaller screens */
+  }
+}
+

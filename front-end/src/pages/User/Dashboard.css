@@ -1,23 +1,23 @@
-.component-container{
-
-    max-width: 35vw !important;
+.dashboard-container {
+    max-width: 60vw; /* Default width for desktops */
+    width: 90%; /* Allows responsiveness */
     border: none;
     border-radius: 15px;
     background: #F5F9FF;
-    color: #1E3A5F !important;
-    margin-top: 15px;
-    padding: 0 !important;
+    color: #1E5F3A;
+    margin: 25px auto;
+    padding: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin: 25px auto 5px;
     min-height: 250px;
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
 }
 
-.btn{
-    margin: 15px 0px;
-    font-weight: bolder !important;
-    background-color: #14213D !important;
-    color: #FCA311 !important;
+/* Mobile-Friendly Adjustments */
+@media (max-width: 768px) {
+    .dashboard-container {
+        max-width: 90% !important; /* Ensure full width */
+        width: 85% !important; /* Leaves small margins */
+        margin: 15px auto; /* Centers properly */
+    }
 }

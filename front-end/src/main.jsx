@@ -17,7 +17,12 @@ import { fetchTasks } from './redux/slices/tasksSlice.js';
 
 const initializeApp = async () => {
     const root = createRoot(document.getElementById("root"));
-    root.render(<div>Loading... </div>);
+    root.render(<div class="d-flex flex-column align-items-center justify-content-center vh-100">
+        <div class="spinner-border text-light" style={{width: "4rem", height: "4rem"}} role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <p class="mt-3 loading-text" style={{fontWeight: "900", fontSize: "4rem", color:"white"}}>Loading, please wait...</p>
+    </div>);
 
     // ✅ Ensure Redux Persist is ready before initialization
     await new Promise((resolve) => {

@@ -1,14 +1,3 @@
-import { config } from "dotenv";
-const envData = config();
-
-const mode = process.env.NODE_ENV;
-console.log("Current Mode:", mode);
-
-if (mode === "development") {
-    
-    console.log('server envData :',envData);
-}
-
 import mongoose from "mongoose";
 import ApiError from "../utils/ApiError.js";
 

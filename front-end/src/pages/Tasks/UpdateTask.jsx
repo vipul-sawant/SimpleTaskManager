@@ -20,12 +20,13 @@ const UpdateTask = () => {
     }, []);
     return (
         <>
-            <div  className="component-container">
+            {/* <div  className="component-container"> */}
+            <div  className="input-form-container">
                 <h1> Update Task </h1>
-                <div className="form-container w-100">
+                {/* <div className="form-container w-100"> */}
                     <TaskForm operation={'edit'} data={task} fieldsArray={fields} />
-                </div>
-                <Button className="btn back-btn"  onClick={() => navigate(-1)}> Back </Button>
+                {/* </div> */}
+                <Button className="my-btn btn-back"  onClick={() => navigate(-1)}> Back </Button>
             </div>
         </>
     )

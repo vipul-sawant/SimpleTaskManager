@@ -34,10 +34,10 @@ const transformUserData = (obj) => {
 
 const registerUser = asyncHandler(async(req, res)=>{
 
-    const { body={} } = req;
+    // const { body={} } = req;
 
     const requiredFields = ['username', 'email', 'c_password'];
-    const missingFields = requiredFields.filter(field=>!body[field]);
+    const missingFields = requiredFields.filter(field=>!req.body[field]);
 
     try {
         
@@ -48,6 +48,7 @@ const registerUser = asyncHandler(async(req, res)=>{
 
         console.log('missing fields :', missingFields);
 
+        const body = req.body;
         const checkQuery = convertUserData(body);
         console.log('checkQuery :', checkQuery);
         
@@ -57,7 +58,7 @@ const registerUser = asyncHandler(async(req, res)=>{
 
         if (existingUser) {
             
-            throw new ApiError(400, "Phone or E-mail registered with different account or Username is Unavailable!");
+            throw new ApiError(400, "E-mail registered with different account or Username is Unavailable!");
         }
 
         const createUserObj = transformUserData(body);

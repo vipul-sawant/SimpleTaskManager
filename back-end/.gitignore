@@ -34,3 +34,5 @@ coverage/
 date.js
 
 database_credentials.txt
+
+tests

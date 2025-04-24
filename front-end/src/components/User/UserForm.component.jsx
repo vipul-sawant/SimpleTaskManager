@@ -17,7 +17,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from "react-bootstrap/Button";
 
-import "./UserForm.component.css";
+// import "./UserForm.component.css";
 
 const UserForm = ({fieldsArray, operation}) => {
 
@@ -65,19 +65,18 @@ const UserForm = ({fieldsArray, operation}) => {
 			} else if (operation === "login") {
 				
 				userAction = await dispatch(loginUser(data));
-			}
-			
-			// ✅ If user exists, fetch chats & contacts
-			if (userAction?.error) {
+				// ✅ If user exists, fetch chats & contacts
+				if (userAction?.error) {
 
-				alert(userAction.payload);
-			} else {
+					alert(userAction.payload);
+				} else {
 
-				const tasksAction = await dispatch(fetchTasks());
+					const tasksAction = await dispatch(fetchTasks());
 
-				if (tasksAction?.error) {
-					
-					alert(tasksAction.payload);
+					if (tasksAction?.error) {
+						
+						alert(tasksAction.payload);
+					}
 				}
 			}
 
@@ -100,6 +99,9 @@ const UserForm = ({fieldsArray, operation}) => {
 			
 			// alert("Logged In as ", user);
 			navigate(`/users/${user.username}/dashboard`, replace);
+		} else if (!isLoggedIn && redirect) {
+
+			navigate("/user/login");
 		}
 	}, [isLoggedIn, redirect]);
 
@@ -136,7 +138,7 @@ const UserForm = ({fieldsArray, operation}) => {
 						</Form.Group>
 					))}
 
-					<Button type="submit" className="btn">{ operation} </Button>
+					<Button type="submit" className="my-btn">{ operation} </Button>
 				</Form>
 			</>
 	)

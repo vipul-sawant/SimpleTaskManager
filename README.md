@@ -24,7 +24,7 @@ Users can add, edit, delete, and mark tasks as complete/incomplete while ensurin
 - **Auth:** JWT, Bcrypt
 
 ## 🚀 Live Demo  
-🔗 [https://vipul-sawant.github.io/SimpleTaskManager](#)
+🔗 [https://vipul-sawant.github.io/SimpleTaskManager](https://vipul-sawant.github.io/SimpleTaskManager)
 
 ## 📸 Screenshots  
 *(Add a screenshot of your app here)*  

@@ -20,6 +20,7 @@ import validateTask from "../../utils/form/validate/taskData.js";
 const TaskForm = ({fieldsArray, operation, data={}}) => {
 
 	console.log("operation :", operation);
+	console.log("data :", data);
 	const { user = {} } = useSelector(state=>state?.auth || {});
 
 	const [ formfields, setFormFields ] = useState(fieldsArray);
@@ -33,6 +34,7 @@ const TaskForm = ({fieldsArray, operation, data={}}) => {
             return acc;
         }, {});
 
+		console.log("reducedObj :", reducedObj);
         return reducedObj;
     };
 
@@ -153,7 +155,7 @@ const TaskForm = ({fieldsArray, operation, data={}}) => {
 						</Form.Group>
 					))}
 
-					<Button type="submit">{ operation} </Button>
+					<Button type="submit" className="my-btn">{ operation} </Button>
 				</Form>
 			</>
 	)

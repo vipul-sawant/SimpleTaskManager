@@ -3,7 +3,8 @@ import "./Dashboard.css";
 const Dashboard = () => {
     return (
         <>
-            <div className="component-container">
+            {/* <div className="component-container"> */}
+            <div className="dashboard-container">
                 <TasksList />
             </div>
         </>
